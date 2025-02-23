@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<!--     <title>Infiniti</title> -->
-    <title>Cauvery Wedding Hall</title>
+    <title>Infiniti</title>
+    <!-- <title>Cauvery Wedding Hall</title> -->
     <!-- Bootstrap CSS -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
     <!-- Animate.css -->
@@ -704,13 +704,13 @@ footer::before {
     .cls-img{
         height: 200px;
         margin-block: 10px;
-        width: 350px;
+        width: 300px;
         border-radius: 22px;
     }
     .cls-img-gal{
         height: 200px;
         margin-block: 10px;
-        width: 350px;
+        width: 300px;
         border-radius: 22px;
     }
 }
@@ -926,7 +926,7 @@ footer::before {
                                 <li>Standard Lighting</li>
                                 <li>Basic Seating Arrangement</li>
                             </ul>
-                            <button class="btn-book-package">Book Now</button>
+                            <button class="btn-book-package" id="bookNowBtn1">Book Now</button>
                         </div>
                     </div>
             
@@ -949,7 +949,7 @@ footer::before {
                                 <li>Premium Seating Setup</li>
                                 <li>Basic Photography</li>
                             </ul>
-                            <button class="btn-book-package">Book Now</button>
+                            <button class="btn-book-package" id="bookNowBtn2">Book Now</button>
                         </div>
                     </div>
             
@@ -972,7 +972,7 @@ footer::before {
                                 <li>Professional Photography</li>
                                 <li>Basic Catering Service</li>
                             </ul>
-                            <button class="btn-book-package">Book Now</button>
+                            <button class="btn-book-package" id="bookNowBtn3">Book Now</button>
                         </div>
                     </div>
             
@@ -996,39 +996,39 @@ footer::before {
                                 <li>Full Catering Service</li>
                                 <li>Valet Parking</li>
                             </ul>
-                            <button class="btn-book-package">Book Now</button>
+                            <button class="btn-book-package" id="bookNowBtn4">Book Now</button>
                         </div>
                     </div>
                 </div>
             </div>
 
             <!-- Booking Form -->
-            <div class="section">
+            <div class="section" id="bookNowSection">
                 <h2 class="section-title">Book Your Event</h2>
-                <form class="booking-form">
+                <form class="booking-form" >
                     <div class="mb-3">
-                        <label for="name" class="form-label">Name</label>
-                        <input type="text" class="form-control" id="name" required>
+                        <label for="contactName" class="form-label">Name</label>
+                        <input type="text" class="form-control" id="contactName" required>
                     </div>
                     <div class="mb-3">
-                        <label for="age" class="form-label">Age</label>
-                        <input type="number" class="form-control" id="age" required>
+                        <label for="contactAge" class="form-label">Age</label>
+                        <input type="number" class="form-control" id="contactAge" required>
                     </div>
                     <div class="mb-3">
-                        <label for="functionName" class="form-label">Function Name</label>
-                        <input type="text" class="form-control" id="functionName" required>
+                        <label for="contactFunction" class="form-label">Function Name</label>
+                        <input type="text" class="form-control" id="contactFunction" required>
                     </div>
                     <div class="mb-3">
-                        <label for="phone" class="form-label">Phone Number</label>
-                        <input type="tel" class="form-control" id="phone" required>
+                        <label for="contactPhone" class="form-label">Phone Number</label>
+                        <input type="tel" class="form-control" id="contactPhone" required>
                     </div>
                     <div class="mb-3">
-                        <label for="email" class="form-label">Email (Optional)</label>
-                        <input type="email" class="form-control" id="email">
+                        <label for="contactEmail" class="form-label">Email (Optional)</label>
+                        <input type="email" class="form-control" id="contactEmail">
                     </div>
                     <div class="mb-3">
-                        <label for="package" class="form-label">Select Package</label>
-                        <select class="form-control" id="package" required>
+                        <label for="contactPackage" class="form-label">Select Package</label>
+                        <select class="form-control" id="contactPackage" required>
                             <option value="">Choose a package</option>
                             <option value="20000">Rs 20,000</option>
                             <option value="23000">Rs 23,000</option>
@@ -1256,8 +1256,28 @@ footer::before {
 
     <!-- Bootstrap and Custom Scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
-   <script>
+      <script>
         document.addEventListener('DOMContentLoaded', function() {
+            let bookNowBtn1 = document.getElementById("bookNowBtn1");
+            let bookNowBtn2 = document.getElementById("bookNowBtn2");
+            let bookNowBtn3 = document.getElementById("bookNowBtn3");
+            let bookNowBtn4 = document.getElementById("bookNowBtn4");
+            let bookNowSection = document.getElementById("bookNowSection");
+
+            if (bookNowBtn1 || bookNowBtn2 || bookNowBtn3 || bookNowBtn4 && bookNowSection) {
+                bookNowBtn1.addEventListener("click", function () {
+                    bookNowSection.scrollIntoView({ behavior: "smooth" });
+                });
+                bookNowBtn2.addEventListener("click", function () {
+                    bookNowSection.scrollIntoView({ behavior: "smooth" });
+                });
+                bookNowBtn3.addEventListener("click", function () {
+                    bookNowSection.scrollIntoView({ behavior: "smooth" });
+                });
+                bookNowBtn4.addEventListener("click", function () {
+                    bookNowSection.scrollIntoView({ behavior: "smooth" });
+                });
+            }
             // Navigation handling
             const navLinks = document.querySelectorAll('.nav-link');
             const sections = document.querySelectorAll('section');
@@ -1516,6 +1536,7 @@ footer::before {
             // Reset form fields
             document.getElementById("bookingForm").reset();
         });
+        
     </script>
 </body>
 </html>
