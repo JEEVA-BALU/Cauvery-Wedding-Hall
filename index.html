@@ -1256,7 +1256,7 @@ footer::before {
 
     <!-- Bootstrap and Custom Scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
-    <script>
+   <script>
         document.addEventListener('DOMContentLoaded', function() {
             // Navigation handling
             const navLinks = document.querySelectorAll('.nav-link');
@@ -1385,6 +1385,45 @@ footer::before {
                         successAlert.className = 'alert alert-success mt-3 animate__animated animate__fadeIn';
                         successAlert.textContent = 'Booking request submitted successfully!';
                         form.appendChild(successAlert);
+                        let name = document.getElementById("contactName").value.trim();
+            let age = document.getElementById("contactAge").value.trim();
+            let functionName = document.getElementById("contactFunction").value.trim();
+            let phone = document.getElementById("contactPhone").value.trim();
+            let email = document.getElementById("contactEmail").value.trim() || "Not provided";
+            let package = document.getElementById("contactPackage").value;
+
+            // Validation - Check if all required fields are filled
+            if (!name || !age || !functionName || !phone || !package) {
+                alert("Please fill all required fields.");
+                return;
+            }
+
+            // Create a formatted paragraph message
+            let message = `🔹 *New Booking Request* 🔹\n\n` +
+                `👤 *Name:* ${name}\n` +
+                `🎂 *Age:* ${age}\n` +
+                `🎉 *Function:* ${functionName}\n` +
+                `📞 *Phone:* ${phone}\n` +
+                `📧 *Email:* ${email}\n` +
+                `💰 *Selected Package:* Rs ${package}`;
+
+            // Encode the message for WhatsApp URL
+            let encodedMessage = encodeURIComponent(message);
+
+            // Your WhatsApp number
+            let yourWhatsAppNumber = "919360421491"; // India (+91)
+
+            // WhatsApp API URL
+            let whatsappUrl = `https://wa.me/${yourWhatsAppNumber}?text=${encodedMessage}`;
+
+            // Show success popup
+            alert("Form Submitted Successfully! Redirecting to WhatsApp...");
+
+            // Open WhatsApp in a new tab
+            window.open(whatsappUrl, "_blank");
+
+            // Reset form fields
+            document.getElementById("bookingForm").reset();
 
                         // Reset form after delay
                         setTimeout(() => {
@@ -1434,7 +1473,7 @@ footer::before {
             });
         });
         document.getElementById("bookingForm").addEventListener("submit", function (event) {
-            event.preventDefault(); // Prevent default form submission
+            event.preventDefault(); 
 
             // Get form values
             let name = document.getElementById("contactName").value.trim();
