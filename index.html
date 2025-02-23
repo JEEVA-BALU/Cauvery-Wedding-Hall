@@ -1,0 +1,1446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infiniti</title>
+    <!-- <title>Cauvery Wedding Hall</title> -->
+    <!-- Bootstrap CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Animate.css -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
+    <style>
+      :root {
+    /* Primary Color Palette */
+    --primary-gradient: linear-gradient(135deg, #FF69B4, #FF1493);
+    --primary-color: #FF69B4;
+    --secondary-color: #FFB6C1;
+    --accent-color: #FF1493;
+    --background-color: #FFF0F5;
+    --text-color: #4A0404;
+    --light-pink: #FFE4E8;
+    --border-color: #FF69B4;
+    --white-color: #FFFFFF;
+    
+    /* Additional Colors */
+    --gold-accent: #FFD700;
+    --silver-accent: #C0C0C0;
+    --dark-pink: #C71585;
+    --soft-pink: #FFC0CB;
+    --deep-red: #8B0000;
+    
+    /* Shadow Variables */
+    --card-shadow: 0 10px 30px rgba(255, 105, 180, 0.2);
+    --hover-shadow: 0 15px 40px rgba(255, 105, 180, 0.3);
+    --text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    
+    /* Transition Variables */
+    --smooth-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --bounce-transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+/* Global Styles */
+body {
+    font-family: 'Playfair Display', 'Arial', serif;
+    color: var(--text-color);
+    background: linear-gradient(135deg, var(--white-color), var(--light-pink));
+    line-height: 1.8;
+    overflow-x: hidden;
+}
+
+/* Enhanced Header Styles */
+.sticky-header {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 2px solid var(--border-color);
+    box-shadow: 0 4px 20px rgba(255, 105, 180, 0.15);
+    /* padding: 15px 0; */
+    transition: var(--smooth-transition);
+    position: sticky;
+    z-index: 1000;
+    top: 0px;
+}
+
+.sticky-header.scrolled {
+    padding: 10px 0;
+    background: rgba(255, 255, 255, 0.98);
+}
+
+.logo {
+    max-height: 50px;
+    filter: drop-shadow(3px 3px 5px rgba(0,0,0,0.2));
+    transition: var(--bounce-transition);
+}
+
+.logo:hover {
+    transform: scale(1.08) rotate(2deg);
+}
+
+/* Navigation Enhancement */
+.nav-link {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    color: var(--text-color) !important;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    padding: 10px 20px;
+    margin: 0 5px;
+    border-radius: 25px;
+    transition: var(--bounce-transition);
+    position: relative;
+    overflow: hidden;
+    font-size: 13px;
+}
+
+.nav-link::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: var(--primary-gradient);
+    transition: var(--smooth-transition);
+    z-index: -1;
+}
+
+.nav-link:hover::before {
+    left: 0;
+}
+
+.nav-link:hover {
+    color: var(--white-color) !important;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(255, 105, 180, 0.3);
+}
+
+.nav-link.active {
+    background: var(--primary-gradient);
+    color: var(--white-color) !important;
+    box-shadow: 0 5px 15px rgba(255, 105, 180, 0.3);
+}
+
+/* Enhanced Carousel Section */
+.carousel-section {
+    margin-top: 30px;
+    background: var(--white-color);
+    border-radius: 30px;
+    box-shadow: var(--card-shadow);
+    overflow: hidden;
+    position: relative;
+}
+
+.carousel-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 5px;
+    background: var(--primary-gradient);
+}
+
+.carousel-item {
+    min-height: 500px;
+    padding: 30px;
+}
+
+.carousel-content {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: var(--card-shadow);
+    transform: translateY(0);
+    transition: var(--bounce-transition);
+    border: 2px solid transparent;
+    position: relative;
+    overflow: hidden;
+}
+
+.carousel-content::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: var(--primary-gradient);
+    z-index: -1;
+    border-radius: 22px;
+    opacity: 0;
+    transition: var(--smooth-transition);
+}
+
+.carousel-content:hover::before {
+    opacity: 1;
+}
+
+.carousel-content:hover {
+    transform: translateY(-8px);
+    border-color: transparent;
+    color: var(--white-color);
+}
+
+.carousel-image {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 25px;
+    box-shadow: var(--card-shadow);
+    transition: var(--bounce-transition);
+    border: 3px solid var(--white-color);
+}
+
+.carousel-image:hover {
+    transform: scale(1.03) rotate(1deg);
+    box-shadow: var(--hover-shadow);
+}
+
+/* Enhanced Section Styles */
+.section {
+    padding: 80px 30px;
+    background: linear-gradient(135deg, var(--white-color), var(--light-pink));
+    border-radius: 40px;
+    margin: 60px 0;
+    box-shadow: var(--card-shadow);
+    position: relative;
+    overflow: hidden;
+}
+
+.section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, transparent, rgba(255, 105, 180, 0.1));
+    z-index: 0;
+}
+
+.section-title {
+    font-family: 'Playfair Display', serif;
+    color: var(--text-color);
+    text-align: center;
+    margin-bottom: 50px;
+    font-size: 2em;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    position: relative;
+    padding-bottom: 20px;
+    text-shadow: var(--text-shadow);
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 150px;
+    height: 4px;
+    background: var(--primary-gradient);
+    border-radius: 2px;
+}
+
+/* Enhanced Form Styles */
+.booking-form {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 50px;
+    background: linear-gradient(135deg, var(--white-color), var(--light-pink));
+    border-radius: 30px;
+    box-shadow: var(--card-shadow);
+    border: 3px solid var(--border-color);
+    position: relative;
+}
+
+.booking-form::before {
+    content: '';
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    bottom: -15px;
+    left: -15px;
+    border: 3px solid var(--primary-color);
+    border-radius: 35px;
+    z-index: -1;
+    opacity: 0.5;
+}
+
+.form-label {
+    font-weight: 600;
+    color: var(--text-color);
+    margin-bottom: 10px;
+    font-size: 1.1em;
+}
+
+.form-control {
+    border: 2px solid var(--secondary-color);
+    border-radius: 15px;
+    padding: 15px;
+    transition: var(--smooth-transition);
+    background-color: rgba(255, 255, 255, 0.9);
+    font-size: 1.1em;
+}
+
+.form-control:focus {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 15px rgba(255, 105, 180, 0.3);
+    transform: translateY(-2px);
+}
+
+.btn-book {
+    background: var(--primary-gradient);
+    color: var(--white-color);
+    padding: 15px 40px;
+    border: none;
+    border-radius: 30px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: var(--bounce-transition);
+    box-shadow: 0 5px 15px rgba(255, 105, 180, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-book::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: var(--smooth-transition);
+}
+
+.btn-book:hover::before {
+    left: 100%;
+}
+
+.btn-book:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 8px 25px rgba(255, 105, 180, 0.4);
+}
+
+/* Enhanced Gallery Styles */
+.gallery-image {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    border-radius: 20px;
+    margin-bottom: 30px;
+    transition: var(--bounce-transition);
+    box-shadow: var(--card-shadow);
+    border: 4px solid var(--white-color);
+}
+
+.gallery-image:hover {
+    transform: scale(1.08) rotate(2deg);
+    box-shadow: var(--hover-shadow);
+}
+
+/* Enhanced Footer Styles */
+footer {
+    background: var(--primary-gradient);
+    padding: 60px 0 40px;
+    margin-top: 80px;
+    color: var(--white-color);
+    border-top: 5px solid var(--secondary-color);
+    position: relative;
+}
+
+footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 15px;
+    background: linear-gradient(90deg, var(--light-pink), var(--secondary-color));
+    opacity: 0.5;
+}
+
+/* Enhanced Animation Classes */
+.animate-left {
+    animation: slideInLeft 1.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    opacity: 0;
+    transform: translateX(-100px);
+}
+
+.animate-right {
+    animation: slideInRight 1.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    opacity: 0;
+    transform: translateX(100px);
+}
+
+@keyframes slideInLeft {
+    0% {
+        transform: translateX(-100px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideInRight {
+    0% {
+        transform: translateX(100px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Package Card Enhancements */
+/* .package-card {
+    background: linear-gradient(135deg, var(--white-color), var(--light-pink));
+    border-radius: 25px;
+    padding: 30px;
+    margin: 25px 0;
+    box-shadow: var(--card-shadow);
+    border: 3px solid var(--secondary-color);
+    transition: var(--bounce-transition);
+    position: relative;
+    overflow: hidden;
+}
+
+.package-card::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: var(--primary-gradient);
+    z-index: -1;
+    border-radius: 27px;
+    opacity: 0;
+    transition: var(--smooth-transition);
+}
+
+.package-card:hover::before {
+    opacity: 1;
+}
+
+.package-card:hover {
+    transform: translateY(-10px);
+    color: var(--white-color);
+    border-color: transparent;
+} */
+.packages-section {
+    padding: 80px 0;
+    background: linear-gradient(135deg, #fff5f8, #fff);
+}
+
+.package-card {
+    background: white;
+    border-radius: 20px;
+    padding: 40px 25px;
+    text-align: center;
+    position: relative;
+    transition: all 0.3s ease;
+    border: 1px solid #ffe4e8;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(255, 105, 180, 0.1);
+}
+
+.package-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(255, 105, 180, 0.2);
+}
+
+.package-card.popular {
+    border: 2px solid #FF69B4;
+    background: linear-gradient(135deg, #fff, #fff5f8);
+}
+
+.popular-tag {
+    position: absolute;
+    top: 20px;
+    right: -35px;
+    background: #FF1493;
+    color: white;
+    padding: 5px 40px;
+    transform: rotate(45deg);
+    font-size: 0.8em;
+    font-weight: bold;
+    box-shadow: 0 2px 10px rgba(255, 20, 147, 0.3);
+}
+
+.package-ribbon {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #FF69B4;
+    margin-bottom: 20px;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.package-ribbon::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 2px;
+    background: linear-gradient(90deg, #FF69B4, #FF1493);
+}
+
+.package-price {
+    font-size: 2.5em;
+    font-weight: bold;
+    color: #4A0404;
+    margin: 20px 0 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.currency {
+    font-size: 0.5em;
+    margin-right: 5px;
+    align-self: flex-start;
+    margin-top: 10px;
+}
+
+.package-duration {
+    color: #666;
+    font-size: 0.9em;
+    margin-bottom: 30px;
+}
+
+.package-features {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 30px;
+    flex-grow: 1;
+}
+
+.package-features li {
+    padding: 10px 0;
+    border-bottom: 1px solid #ffe4e8;
+    color: #4A0404;
+    font-size: 0.95em;
+}
+
+.package-features li:last-child {
+    border-bottom: none;
+}
+
+.btn-book-package {
+    background: linear-gradient(45deg, #FF69B4, #FF1493);
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 25px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.btn-book-package:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(255, 105, 180, 0.3);
+}
+
+.package-card:hover .package-ribbon {
+    color: #FF1493;
+}
+
+/* Add shine effect on hover */
+.package-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        120deg,
+        transparent,
+        rgba(255, 255, 255, 0.3),
+        transparent
+    );
+    transition: 0.5s;
+}
+
+.package-card:hover::before {
+    left: 100%;
+}
+
+@media (max-width: 992px) {
+    .package-card {
+        margin-bottom: 30px;
+    }
+}
+
+@media (max-width: 768px) {
+    .package-price {
+        font-size: 2em;
+    }
+    
+    .package-features {
+        font-size: 0.9em;
+    }
+}
+.cls-img{
+    height: 200px;
+    width : 500px;
+    border-radius: 22px;
+}
+
+.cls-img-gal{
+    height: 200px;
+    padding: 10px;
+    width: 340px;
+    border-radius: 22px;
+}
+
+/* Custom Scrollbar Enhancement */
+::-webkit-scrollbar {
+    width: 14px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--light-pink);
+    border-radius: 7px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--primary-gradient);
+    border-radius: 7px;
+    border: 3px solid var(--light-pink);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--accent-color);
+}
+
+/* Responsive Design Enhancements */
+@media (max-width: 992px) {
+    .section-title {
+        font-size: 2.5em;
+    }
+    
+    .carousel-content {
+        padding: 30px;
+    }
+    
+    .booking-form {
+        padding: 40px;
+    }
+}
+
+@media (max-width: 768px) {
+    .section-title {
+        font-size: 2em;
+    }
+    
+    .carousel-image {
+        height: 300px;
+    }
+    
+    .nav-link {
+        padding: 8px 15px;
+        margin: 3px 0;
+    }
+    
+    .booking-form {
+        padding: 30px;
+    }
+}
+
+@media (max-width: 576px) {
+    .section {
+        padding: 60px 20px;
+    }
+    
+    .carousel-image {
+        height: 250px;
+    }
+    
+    .btn-book {
+        padding: 12px 30px;
+    }
+}
+    </style>
+</head>
+<body>
+    <!-- Sticky Header -->
+    <header class="sticky-header">
+        <nav class="navbar navbar-expand-lg">
+            <div class="container">
+                <a class="navbar-brand" href="#">
+                    <img src="https://i.pinimg.com/736x/b5/4e/6b/b54e6bab8175def631fe34dc469cc500.jpg" alt="Logo" class="logo">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#" data-section="home">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" data-section="gallery">Gallery</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" data-section="products">Products</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" data-section="services">Services</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" data-section="blog">Blog</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" data-section="contact">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content Container -->
+    <div class="container" id="mainContent">
+        <!-- Home Section -->
+        <section id="home" class="cls-home">
+            <!-- Carousel -->
+            <div id="mainCarousel" class="carousel slide carousel-section" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <!-- Slide 1 -->
+                    <div class="carousel-item active">
+                        <h2 class="section-title">Cauvery Wedding Hall</h2>
+                        <div class="row mb-4">
+                            <div class="col-md-6">
+                                <img src="./images/home/1.jpeg" class="cls-img" alt="Wedding Venue" class="carousel-image animate-left">
+                            </div>
+                            <div class="col-md-6">
+                                <div class="carousel-content animate-right">
+                                    <h2>Your Perfect Wedding Venue</h2>
+                                    <p>Experience the magic of your special day in our elegant wedding hall.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="carousel-content animate-left">
+                                    <h2>Memorable Celebrations</h2>
+                                    <p>Create lasting memories in our beautifully decorated spaces.</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <img src="./images/home/2.jpeg" class="cls-img" height="210" width="500" alt="Celebration" class="carousel-image animate-right">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Slide 2 -->
+                    <div class="carousel-item">
+                        <h2 class="section-title">Cauvery Wedding Hall</h2>
+                        <div class="row mb-4">
+                            <div class="col-md-6">
+                                <div class="carousel-content animate-left">
+                                    <h2>Elegant Decor</h2>
+                                    <p>Our professional decorators ensure every detail is perfect.</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <img src="./images/home/3.jpeg" class="cls-img" alt="Decor" class="carousel-image animate-right">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <img src="./images/home/4.jpeg" class="cls-img" alt="Catering" class="carousel-image animate-left">
+                            </div>
+                            <div class="col-md-6">
+                                <div class="carousel-content animate-right">
+                                    <h2>Exquisite Catering</h2>
+                                    <p>Delight your guests with our premium catering services.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Slide 3 -->
+                    <div class="carousel-item">
+                        <h2 class="section-title">Cauvery Wedding Hall</h2>
+                        <!-- Similar structure as above slides -->
+                        <div class="row mb-4">
+                            <div class="col-md-6">
+                                <img src="./images/home/5.jpeg" class="cls-img" alt="Services" class="carousel-image animate-left">
+                            </div>
+                            <div class="col-md-6">
+                                <div class="carousel-content animate-right">
+                                    <h2>Complete Services</h2>
+                                    <p>From planning to execution, we handle everything.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="carousel-content animate-left">
+                                    <h2>Professional Team</h2>
+                                    <p>Our experienced team ensures flawless events.</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <img src="./images/home/6.jpeg" class="cls-img" alt="Team" class="carousel-image animate-right">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Slide 4 -->
+                    <div class="carousel-item"> 
+                        <h2 class="section-title">Cauvery Wedding Hall</h2>
+                        <div class="row mb-4">
+                            <div class="col-md-6">
+                                <div class="carousel-content animate-left">
+                                    <h2>Special Offers</h2>
+                                    <p>Exclusive packages for your dream wedding.</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <img src="./images/home/7.jpeg" class="cls-img" alt="Offers" class="carousel-image animate-right">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <img src="./images/home/8.jpeg" class="cls-img" alt="Packages" class="carousel-image animate-left">
+                            </div>
+                            <div class="col-md-6">
+                                <div class="carousel-content animate-right">
+                                    <h2>Custom Packages</h2>
+                                    <p>Tailored solutions for every budget.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <button class="carousel-control-prev" type="button" data-bs-target="#mainCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon"></span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#mainCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon"></span>
+                </button>
+            </div>
+
+            <!-- Offers Section -->
+            <div class="section">
+                <h2 class="section-title">Special Offers</h2>
+                <div class="row mb-4">
+                    <div class="col-md-6">
+                        <div class="carousel-content animate-left">
+                            <h3>Wedding Season Discount</h3>
+                            <p>Book now and get 20% off on all wedding packages!</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <img src="./images/home/1.jpeg" class="cls-img" alt="Offers" class="carousel-image animate-right">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <img src="./images/home/2.jpeg" class="cls-img" alt="Discount" class="carousel-image animate-left">
+                    </div>
+                    <div class="col-md-6">
+                        <div class="carousel-content animate-right">
+                            <h3>Early Bird Offer</h3>
+                            <p>Special pricing for advance bookings!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Packages Section -->
+            <div class="section packages-section">
+                <h2 class="section-title">Our Packages</h2>
+                <div class="row">
+                    <!-- Basic Package -->
+                    <div class="col-lg-3 col-md-6 mb-4">
+                        <div class="package-card">
+                            <div class="package-ribbon">Basic</div>
+                            <div class="package-price">
+                                <span class="currency">₹</span>
+                                <span class="amount">20,000</span>
+                            </div>
+                            <div class="package-duration">Per Event</div>
+                            <ul class="package-features">
+                                <li>Hall Capacity: 300 People</li>
+                                <li>Basic Decoration</li>
+                                <li>4 Hours Duration</li>
+                                <li>Basic Sound System</li>
+                                <li>Standard Lighting</li>
+                                <li>Basic Seating Arrangement</li>
+                            </ul>
+                            <button class="btn-book-package">Book Now</button>
+                        </div>
+                    </div>
+            
+                    <!-- Standard Package -->
+                    <div class="col-lg-3 col-md-6 mb-4">
+                        <div class="package-card popular">
+                            <div class="package-ribbon">Standard</div>
+                            <div class="popular-tag">Most Popular</div>
+                            <div class="package-price">
+                                <span class="currency">₹</span>
+                                <span class="amount">23,000</span>
+                            </div>
+                            <div class="package-duration">Per Event</div>
+                            <ul class="package-features">
+                                <li>Hall Capacity: 400 People</li>
+                                <li>Premium Decoration</li>
+                                <li>6 Hours Duration</li>
+                                <li>Professional Sound System</li>
+                                <li>Enhanced Lighting</li>
+                                <li>Premium Seating Setup</li>
+                                <li>Basic Photography</li>
+                            </ul>
+                            <button class="btn-book-package">Book Now</button>
+                        </div>
+                    </div>
+            
+                    <!-- Premium Package -->
+                    <div class="col-lg-3 col-md-6 mb-4">
+                        <div class="package-card">
+                            <div class="package-ribbon">Premium</div>
+                            <div class="package-price">
+                                <span class="currency">₹</span>
+                                <span class="amount">25,000</span>
+                            </div>
+                            <div class="package-duration">Per Event</div>
+                            <ul class="package-features">
+                                <li>Hall Capacity: 500 People</li>
+                                <li>Luxury Decoration</li>
+                                <li>8 Hours Duration</li>
+                                <li>Premium Sound System</li>
+                                <li>Premium Lighting</li>
+                                <li>VIP Seating Arrangement</li>
+                                <li>Professional Photography</li>
+                                <li>Basic Catering Service</li>
+                            </ul>
+                            <button class="btn-book-package">Book Now</button>
+                        </div>
+                    </div>
+            
+                    <!-- Platinum Package -->
+                    <div class="col-lg-3 col-md-6 mb-4">
+                        <div class="package-card">
+                            <div class="package-ribbon">Platinum</div>
+                            <div class="package-price">
+                                <span class="currency">₹</span>
+                                <span class="amount">30,000</span>
+                            </div>
+                            <div class="package-duration">Per Event</div>
+                            <ul class="package-features">
+                                <li>Hall Capacity: 600 People</li>
+                                <li>Premium Decoration</li>
+                                <li>Full Day Event</li>
+                                <li>Premium Sound System</li>
+                                <li>Premium Lighting</li>
+                                <li>Luxury Seating</li>
+                                <li>Professional Photography</li>
+                                <li>Full Catering Service</li>
+                                <li>Valet Parking</li>
+                            </ul>
+                            <button class="btn-book-package">Book Now</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Booking Form -->
+            <div class="section">
+                <h2 class="section-title">Book Your Event</h2>
+                <form class="booking-form">
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Name</label>
+                        <input type="text" class="form-control" id="name" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="age" class="form-label">Age</label>
+                        <input type="number" class="form-control" id="age" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="functionName" class="form-label">Function Name</label>
+                        <input type="text" class="form-control" id="functionName" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="phone" class="form-label">Phone Number</label>
+                        <input type="tel" class="form-control" id="phone" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email (Optional)</label>
+                        <input type="email" class="form-control" id="email">
+                    </div>
+                    <div class="mb-3">
+                        <label for="package" class="form-label">Select Package</label>
+                        <select class="form-control" id="package" required>
+                            <option value="">Choose a package</option>
+                            <option value="20000">Rs 20,000</option>
+                            <option value="23000">Rs 23,000</option>
+                            <option value="25000">Rs 25,000</option>
+                            <option value="30000">Rs 30,000</option>
+                        </select>
+                        <small class="text-muted">Package details can be found in the package menu</small>
+                    </div>
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-book">Book Now</button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Video Section -->
+            <div class="section">
+                <div class="row mb-4">
+                    <div class="col-md-6">
+                        <div class="embed-responsive embed-responsive-16by9">
+                            <iframe class="embed-responsive-item cls-img" src="https://www.youtube.com/embed/73l9HHqvxsg" frameborder="0" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="carousel-content animate-right">
+                            <h3>Our Venue Tour</h3>
+                            <p>Take a virtual tour of our stunning wedding venue.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="carousel-content animate-left">
+                            <h3>Wedding Highlights</h3>
+                            <p>Watch beautiful moments from recent celebrations.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="embed-responsive embed-responsive-16by9">
+                            <iframe class="embed-responsive-item cls-img"  src="https://www.youtube.com/embed/AnD9PiirYF0"  frameborder="0" allowfullscreen> </iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery Section -->
+        <section id="gallery" class="section d-none">
+            <h2 class="section-title">Our Gallery</h2>
+            <div class="row">
+                <!-- Repeated 10 times for 30 images (3 columns × 10 rows) -->
+                <div class="col-md-4">
+                    <img src="./images/home/1.jpeg" class="cls-img-gal" alt="Gallery 1" class="gallery-image">
+                </div>
+                <div class="col-md-4">
+                    <img src="./images/home/2.jpeg" class="cls-img-gal" alt="Gallery 2" class="gallery-image">
+                </div>
+                <div class="col-md-4">
+                    <img src="./images/home/3.jpeg" class="cls-img-gal" alt="Gallery 3" class="gallery-image">
+                </div>
+                <div class="col-md-4">
+                    <img src="./images/home/4.jpeg" class="cls-img-gal" alt="Gallery 1" class="gallery-image">
+                </div>
+                <div class="col-md-4">
+                    <img src="./images/home/5.jpeg" class="cls-img-gal" alt="Gallery 2" class="gallery-image">
+                </div>
+                <div class="col-md-4">
+                    <img src="./images/home/6.jpeg" class="cls-img-gal" alt="Gallery 3" class="gallery-image">
+                </div>
+                <div class="col-md-4">
+                    <img src="./images/home/7.jpeg" class="cls-img-gal" alt="Gallery 1" class="gallery-image">
+                </div>
+                <div class="col-md-4">
+                    <img src="./images/home/8.jpeg" class="cls-img-gal" alt="Gallery 2" class="gallery-image">
+                </div>
+                <div class="col-md-4">
+                    <img src="./images/home/1.jpeg" class="cls-img-gal" alt="Gallery 3" class="gallery-image">
+                </div>
+                <!-- Repeat for remaining images -->
+            </div>
+        </section>
+
+        <!-- Products Section -->
+        <section id="products" class="section d-none">
+            <h2 class="section-title">Our Products</h2>
+            <div class="content-box">
+                <div class="row mb-4">
+                    <div class="col-md-6">
+                        <div class="carousel-content animate-left">
+                            <h3>Wedding Decorations</h3>
+                            <p>Exclusive decoration packages for your special day.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <img src="./images/home/1.jpeg" class="cls-img" alt="Decorations" class="carousel-image">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <img src="./images/home/1.jpeg" class="cls-img" alt="Catering" class="carousel-image">
+                    </div>
+                    <div class="col-md-6">
+                        <div class="carousel-content animate-right">
+                            <h3>Catering Services</h3>
+                            <p>Delicious menu options for all occasions.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="section d-none">
+            <h2 class="section-title">Our Services</h2>
+            <div class="content-box">
+                <div class="row mb-4">
+                    <div class="col-md-6">
+                        <div class="carousel-content animate-left">
+                            <h3>Wedding Planning</h3>
+                            <p>Complete wedding planning and coordination services.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <img src="./images/home/2.jpeg" class="cls-img" alt="Planning" class="carousel-image">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <img src="./images/home/2.jpeg" class="cls-img" alt="Decoration" class="carousel-image">
+                    </div>
+                    <div class="col-md-6">
+                        <div class="carousel-content animate-right">
+                            <h3>Decoration Services</h3>
+                            <p>Professional decoration services for all themes.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Blog Section -->
+        <section id="blog" class="section d-none">
+            <h2 class="section-title">Our Blog</h2>
+            <div class="content-box">
+                <div class="row mb-4">
+                    <div class="col-md-6">
+                        <div class="carousel-content animate-left">
+                            <h3>Wedding Trends 2025</h3>
+                            <p>Latest trends in wedding celebrations and decorations.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <img src="./images/home/3.jpeg" class="cls-img"  alt="Trends" class="carousel-image">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <img src="./images/home/3.jpeg" class="cls-img"  alt="Tips" class="carousel-image">
+                    </div>
+                    <div class="col-md-6">
+                        <div class="carousel-content animate-right">
+                            <h3>Wedding Planning Tips</h3>
+                            <p>Expert advice for your perfect wedding day.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="section d-none">
+            <h2 class="section-title">Contact Us & Book Now</h2>
+            <form class="booking-form">
+                <div class="mb-3">
+                    <label for="contactName" class="form-label">Name</label>
+                    <input type="text" class="form-control" id="contactName" required>
+                </div>
+                <div class="mb-3">
+                    <label for="contactAge" class="form-label">Age</label>
+                    <input type="number" class="form-control" id="contactAge" required>
+                </div>
+                <div class="mb-3">
+                    <label for="contactFunction" class="form-label">Function Name</label>
+                    <input type="text" class="form-control" id="contactFunction" required>
+                </div>
+                <div class="mb-3">
+                    <label for="contactPhone" class="form-label">Phone Number</label>
+                    <input type="tel" class="form-control" id="contactPhone" required>
+                </div>
+                <div class="mb-3">
+                    <label for="contactEmail" class="form-label">Email (Optional)</label>
+                    <input type="email" class="form-control" id="contactEmail">
+                </div>
+                <div class="mb-3">
+                    <label for="contactPackage" class="form-label">Select Package</label>
+                    <select class="form-control" id="contactPackage" required>
+                        <option value="">Choose a package</option>
+                        <option value="20000">Rs 20,000</option>
+                        <option value="23000">Rs 23,000</option>
+                        <option value="25000">Rs 25,000</option>
+                        <option value="30000">Rs 30,000</option>
+                    </select>
+                    <small class="text-muted">Package details can be found in the package menu</small>
+                </div>
+                <div class="text-center">
+                    <button type="submit" class="btn btn-book">Book Now</button>
+                </div>
+            </form>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <img src="https://i.pinimg.com/736x/b5/4e/6b/b54e6bab8175def631fe34dc469cc500.jpg" alt="Footer Logo" class="logo mb-3">
+                    <p>Creating unforgettable wedding memories</p>
+                </div>
+                <div class="col-md-6 text-end">
+                    <p>&copy; 2025 Cauvery Wedding Hall</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap and Custom Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Navigation handling
+            const navLinks = document.querySelectorAll('.nav-link');
+            const sections = document.querySelectorAll('section');
+
+            function showSection(sectionId) {
+                sections.forEach(section => {
+                    section.classList.add('d-none');
+                });
+                document.getElementById(sectionId).classList.remove('d-none');
+                
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if(link.getAttribute('data-section') === sectionId) {
+                        link.classList.add('active');
+                    }
+                });
+            }
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const sectionId = this.getAttribute('data-section');
+                    showSection(sectionId);
+                });
+            });
+         
+            // Initialize animations
+            function initializeAnimations() {
+                const animatedElements = document.querySelectorAll('.animate-left, .animate-right');
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.style.opacity = '1';
+                            entry.target.style.transform = 'translateX(0)';
+                        }
+                    });
+                });
+
+                animatedElements.forEach(element => {
+                    element.style.opacity = '0';
+                    observer.observe(element);
+                });
+            }
+
+            initializeAnimations();
+            // Enhanced Animation Control
+            function enhancedAnimations() {
+                const animatedElements = document.querySelectorAll('.animate-left, .animate-right');
+                
+                const observerOptions = {
+                    threshold: 0.2,
+                    rootMargin: '0px'
+                };
+
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.style.opacity = '1';
+                            entry.target.style.transform = 'translateX(0)';
+                            
+                            // Add additional animation classes
+                            if (entry.target.classList.contains('animate-left')) {
+                                entry.target.classList.add('animate__animated', 'animate__fadeInLeft');
+                            } else {
+                                entry.target.classList.add('animate__animated', 'animate__fadeInRight');
+                            }
+                        }
+                    });
+                }, observerOptions);
+
+                animatedElements.forEach(element => {
+                    element.style.opacity = '0';
+                    observer.observe(element);
+                });
+            }
+
+            // Smooth Scroll Implementation
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+
+            // Form Validation Enhancement
+            const forms = document.querySelectorAll('form');
+            forms.forEach(form => {
+                form.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    // Basic form validation
+                    let isValid = true;
+                    const requiredFields = form.querySelectorAll('[required]');
+                    
+                    requiredFields.forEach(field => {
+                        if (!field.value.trim()) {
+                            isValid = false;
+                            field.classList.add('is-invalid');
+                            
+                            // Add error message
+                            if (!field.nextElementSibling?.classList.contains('invalid-feedback')) {
+                                const feedback = document.createElement('div');
+                                feedback.className = 'invalid-feedback';
+                                feedback.textContent = 'This field is required';
+                                field.parentNode.appendChild(feedback);
+                            }
+                        } else {
+                            field.classList.remove('is-invalid');
+                            const feedback = field.nextElementSibling;
+                            if (feedback?.classList.contains('invalid-feedback')) {
+                                feedback.remove();
+                            }
+                        }
+                    });
+
+                    if (isValid) {
+                        // Show success message
+                        const successAlert = document.createElement('div');
+                        successAlert.className = 'alert alert-success mt-3 animate__animated animate__fadeIn';
+                        successAlert.textContent = 'Booking request submitted successfully!';
+                        form.appendChild(successAlert);
+
+                        // Reset form after delay
+                        setTimeout(() => {
+                            form.reset();
+                            successAlert.remove();
+                        }, 3000);
+                    }
+                });
+            });
+
+            // Initialize enhanced animations
+            enhancedAnimations();
+
+            // Add hover effects to gallery images
+            const galleryImages = document.querySelectorAll('.gallery-image');
+            galleryImages.forEach(image => {
+                image.addEventListener('mouseover', function() {
+                    this.style.transform = 'scale(1.05) rotate(2deg)';
+                });
+                
+                image.addEventListener('mouseout', function() {
+                    this.style.transform = 'scale(1) rotate(0deg)';
+                });
+            });
+
+            // Package selection enhancement
+            const packageSelects = document.querySelectorAll('select[id$="Package"]');
+            packageSelects.forEach(select => {
+                select.addEventListener('change', function() {
+                    const selectedOption = this.options[this.selectedIndex];
+                    const price = selectedOption.value;
+                    
+                    if (price) {
+                        const priceDisplay = document.createElement('div');
+                        priceDisplay.className = 'price-tag mt-2 animate__animated animate__fadeIn';
+                        priceDisplay.textContent = `Selected Package: Rs ${Number(price).toLocaleString()}`;
+                        
+                        // Remove any existing price display
+                        const existingPrice = this.nextElementSibling;
+                        if (existingPrice?.classList.contains('price-tag')) {
+                            existingPrice.remove();
+                        }
+                        
+                        this.parentNode.appendChild(priceDisplay);
+                    }
+                });
+            });
+        });
+        document.getElementById("bookingForm").addEventListener("submit", function (event) {
+            event.preventDefault(); // Prevent default form submission
+
+            // Get form values
+            let name = document.getElementById("contactName").value.trim();
+            let age = document.getElementById("contactAge").value.trim();
+            let functionName = document.getElementById("contactFunction").value.trim();
+            let phone = document.getElementById("contactPhone").value.trim();
+            let email = document.getElementById("contactEmail").value.trim() || "Not provided";
+            let package = document.getElementById("contactPackage").value;
+
+            // Validation - Check if all required fields are filled
+            if (!name || !age || !functionName || !phone || !package) {
+                alert("Please fill all required fields.");
+                return;
+            }
+
+            // Create a formatted paragraph message
+            let message = `🔹 *New Booking Request* 🔹\n\n` +
+                `👤 *Name:* ${name}\n` +
+                `🎂 *Age:* ${age}\n` +
+                `🎉 *Function:* ${functionName}\n` +
+                `📞 *Phone:* ${phone}\n` +
+                `📧 *Email:* ${email}\n` +
+                `💰 *Selected Package:* Rs ${package}`;
+
+            // Encode the message for WhatsApp URL
+            let encodedMessage = encodeURIComponent(message);
+
+            // Your WhatsApp number
+            let yourWhatsAppNumber = "919360421491"; // India (+91)
+
+            // WhatsApp API URL
+            let whatsappUrl = `https://wa.me/${yourWhatsAppNumber}?text=${encodedMessage}`;
+
+            // Show success popup
+            alert("Form Submitted Successfully! Redirecting to WhatsApp...");
+
+            // Open WhatsApp in a new tab
+            window.open(whatsappUrl, "_blank");
+
+            // Reset form fields
+            document.getElementById("bookingForm").reset();
+        });
+    </script>
+</body>
+</html>
